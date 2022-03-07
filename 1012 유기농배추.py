@@ -13,6 +13,8 @@ def visiting(x, y):
         visiting(x+1, y)  # visit right node
     if y+1 < n and bachu_list[y+1][x] == 1:
         visiting(x, y+1)  # visit lower node
+    if y-1 >= 0 and bachu_list[y-1][x] == 1:
+        visiting(x, y-1)
 
 
 t = int(input())
