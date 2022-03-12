@@ -1,12 +1,7 @@
 import heapq
 import sys
-
-
 input = sys.stdin.readline
-
 minheap = []
-
-
 n = int(input())
 num = 0
 for i in range(n):
