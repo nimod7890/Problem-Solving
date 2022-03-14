@@ -18,31 +18,38 @@ for i in range(m):
 num = [[0 for i in range(n)] for i in range(n)]
 
 
-def find(start, end, visit_n):
-    global num
-    if start == end:
-        if num[sIdx][eIdx] == 0:
-            num[sIdx][eIdx] = visit_n
-        else:
-            num[sIdx][eIdx] = visit_n if visit_n <= num[sIdx][eIdx] else num[sIdx][eIdx]
-        return
-    if visited[start] == 1:
-        return
-    visited[start] = 1
-    for x in relation[start]:
-        find(x, end, visit_n+1)
-    visited[start] = 0
+# def find(start, end, visit_n):
+#     global num
+#     if start == end:
+#         if num[sIdx][eIdx] == 0:
+#             num[sIdx][eIdx] = visit_n
+#         else:
+#             num[sIdx][eIdx] = visit_n if visit_n <= num[sIdx][eIdx] else num[sIdx][eIdx]
+#         return
+#     if visited[start] == 1:
+#         return
+#     visited[start] = 1
+#     for x in relation[start]:
+#         find(x, end, visit_n+1)
+#     visited[start] = 0
+
+
+def findd(start, end):
+    cnt = 0
+    will_go = list(relation[start])
+    visited = [0 for i in range(n)]
 
 
 minimum, ans = 0, []
 
 for sIdx in range(n):  # 01234
     for eIdx in range(sIdx+1, n):  # 1234
-        visited = [0 for i in range(n)]
-        find(sIdx, eIdx, 0)
+        # find(sIdx, eIdx, 0)
+        num[sIdx][eIdx] = findd(sIdx, eIdx)
         num[eIdx][sIdx] = num[sIdx][eIdx]
+        print(num)
     summ = sum(num[sIdx])
-    if ans == -1:
+    if ans == []:
         minimum = summ
         ans.append(sIdx)
     elif summ <= minimum:
