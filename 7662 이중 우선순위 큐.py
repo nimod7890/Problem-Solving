@@ -1,40 +1,27 @@
-from collections import deque
+import heapq
 import sys
 input = sys.stdin.readline
-
-
-def quick(queue):
-    if len(queue) < 2:
-        return queue
-    piv = queue[len(queue)//2]
-    small, equal, big = [], [], []
-    for x in queue:
-        if x < piv:
-            small.append(x)
-        elif x > piv:
-            big.append(x)
-        else:
-            equal.append(x)
-    return quick(small)+equal+quick(big)
 
 
 t = int(input())
 for i in range(t):
     k = int(input())
-    queue = deque()
+    min_heap = []
+    max_heap = []
     for j in range(k):
         do = input().split()
         num = int(do[1])
         if do[0] == 'I':
-            queue.append(num)
-            queue = quick(queue)
+            heapq.heappush(min_heap, num)
+            heapq.heappush(max_heap, -num)
         else:
-            if len(queue) != 0:
+            if len(min_heap) != 0:
                 if do[1] == '1':
-                    queue.pop()
+                    min_heap.remove(-heapq.heappop(max_heap))
                 else:
-                    queue.pop(0)
-    if len(queue) == 0:
+                    max_heap.remove(-heapq.heappop(min_heap))
+
+    if len(min_heap) == 0:
         print("EMPTY")
     else:
-        print(f"{queue[-1]} {queue[0]}")
+        print(f"{min_heap[-1]} {min_heap[0]}")
