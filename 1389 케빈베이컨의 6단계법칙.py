@@ -1,58 +1,38 @@
 '''
-시간초과남 
-나중에 
-할 거 임
+답을 보기 이전의 머리로 돌아갈 수 없는 나 
 '''
-
-
-from collections import defaultdict
+from collections import deque
 import sys
+
+
+def bfs(start):
+    num = [0] * n
+    visit = [0] * n
+    will_visit = deque()
+    will_visit.append(start)
+    while will_visit:
+        node = will_visit.popleft()
+        for child in relation[node]:
+            if visit[child] == 1:
+                continue
+            num[child] = num[node]+1
+            visit[child] = 1
+            will_visit.append(child)
+    return sum(num)
+
 
 input = sys.stdin.readline
 n, m = map(int, input().split())
-relation = defaultdict(set)
+relation = [[] for i in range(n)]
 for i in range(m):
     a, b = map(int, input().split())
-    relation[a-1].add(b-1)
-    relation[b-1].add(a-1)
-num = [[0 for i in range(n)] for i in range(n)]
+    relation[a-1].append(b-1)
+    relation[b-1].append(a-1)
 
-
-# def find(start, end, visit_n):
-#     global num
-#     if start == end:
-#         if num[sIdx][eIdx] == 0:
-#             num[sIdx][eIdx] = visit_n
-#         else:
-#             num[sIdx][eIdx] = visit_n if visit_n <= num[sIdx][eIdx] else num[sIdx][eIdx]
-#         return
-#     if visited[start] == 1:
-#         return
-#     visited[start] = 1
-#     for x in relation[start]:
-#         find(x, end, visit_n+1)
-#     visited[start] = 0
-
-
-def findd(start, end):
-    cnt = 0
-    will_go = list(relation[start])
-    visited = [0 for i in range(n)]
-
-
-minimum, ans = 0, []
-
-for sIdx in range(n):  # 01234
-    for eIdx in range(sIdx+1, n):  # 1234
-        # find(sIdx, eIdx, 0)
-        num[sIdx][eIdx] = findd(sIdx, eIdx)
-        num[eIdx][sIdx] = num[sIdx][eIdx]
-        print(num)
-    summ = sum(num[sIdx])
-    if ans == []:
-        minimum = summ
-        ans.append(sIdx)
-    elif summ <= minimum:
-        ans.append(sIdx)
-
-print(min(ans)+1)
+result = -1
+for i in range(n):
+    num = bfs(i)
+    if result == -1 or num < result:
+        result = num
+        ans = i
+print(ans+1)
