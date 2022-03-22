@@ -1,32 +1,16 @@
-#거의 베꼈음 난 멍청해 ㅜ 
+from collections import deque
+import sys
 
-n,m=map(int,input().split())
-miro=[]
-visit=[[0 for i in range(m)] for i in range(n)]
-print(visit)
-will_visit=[]
-for i in range(n):
-    miro.append(list(input()))
+input = sys.stdin.readline
+n, m = map(int, input().split())
+will = deque()
+will.append([0, 0])
+miro = [list(input().strip()) for i in range(n)]
 
-
-dx=[1,-1,0,0]
-dy=[0,0,-1,1]
-
-will_visit.append([0,0])
-visit[0][0]=1
-
-while will_visit:
-    i,j=will_visit.pop(0)
-    for idx in range(4):
-        x=i+dx[idx]
-        y=j+dy[idx]
-        if 0<=x<n and 0<=y<m:
-            if visit[x][y]==0:
-                print("visit",x,y)
-                will_visit.append([x,y])
-                visit[x][y]=1+visit[i][j]
-
-print(visit[n-1][m-1])
-
-
-
+while will:
+    i, j = will.popleft()
+    for N, M in [[i-1, j], [i+1, j], [i, j-1], [i, j+1]]:
+        if 0 <= N < n and 0 <= M < m and miro[N][M] == '1':
+            will.append([N, M])
+            miro[N][M] = int(miro[i][j])+1
+print(miro[n-1][m-1])
