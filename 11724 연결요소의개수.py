@@ -1,30 +1,20 @@
-#아예 뜯어고침 == 베꼈다는 뜻 
-
-
-from collections import defaultdict
+from collections import defaultdict, deque
 import sys
-
-sys.setrecursionlimit(10**6)
-input=sys.stdin.readline
-n,m=map(int,input().split())
-d=defaultdict(list)
-
-
+input = sys.stdin.readline
+n, m = map(int, input().split())
+graph = defaultdict(list)
+visit = [0]*n
+will = deque(i for i in range(n))
+group = list(i for i in range(n))
 for i in range(m):
-    a,b=map(int,input().split())
-    d[a]+=[b]
-    d[b]+=[a]
-    
-num=0
-visit=[]
-def bfs(v):
-    if v in visit: return 
-    visit.append(v)
-    for w in d[v]:
-        bfs(w)
-
-for v in d.keys():
-    if v not in visit:
-        bfs(v)
-        num+=1
-print(num+n-len(visit))
+    a, b = map(int, input().split())
+    graph[a-1].append(b-1)
+    graph[b-1].append(a-1)
+while will:
+    x = will.popleft()
+    if visit[x] == 0:
+        visit[x] = 1
+        for y in graph[x]:
+            will.append(y)
+            group[y] = group[x]
+print(len(set(group)))
