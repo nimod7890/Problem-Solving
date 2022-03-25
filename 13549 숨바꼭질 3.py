@@ -2,21 +2,19 @@ from collections import defaultdict, deque
 
 n, k = map(int, input().split())
 visit = defaultdict(int)
-visit[n] = 1
 will = deque([n])
-ans = []
+visit[n] = 1
 while will:
     x = will.popleft()
     if x == k:
-        ans.append(visit[k])
-    for i in [x-1, x+1, 2*x]:
-        if i == n:
-            continue
+        break
+    for i in [2*x, x-1, x+1]:
         if 0 <= i <= 100000 and visit[i] == 0:
-            will.append(i)
             if i == 2*x:
                 visit[i] = visit[x]
+                will.appendleft(i)
             else:
                 visit[i] = visit[x]+1
-print(len(ans))
-print(min(ans))
+                will.append(i)
+
+print(visit[k]-1)
