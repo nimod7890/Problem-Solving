@@ -1,3 +1,5 @@
+# b to a로 풀이하는게 베스트
+
 from collections import defaultdict, deque
 
 n, k = map(int, input().split())
