@@ -10,15 +10,15 @@ Practice Algorithm
 
 [Gold](/Gold/)
 
-> [Gold 1](/gold/gold%201/)
+> [Gold 1](/Gold/Gold%201/)
 >
-> [Gold 2](/gold/gold%202/)
+> [Gold 2](/Gold/Gold%202/)
 >
-> [Gold 3](/gold/gold%203/)
+> [Gold 3](/Gold/Gold%203/)
 >
-> [Gold 4](/gold/Gold%204/)
+> [Gold 4](/Gold/Gold%204/)
 >
-> [Gold 5](/gold/Gold%205/)
+> [Gold 5](/Gold/Gold%205/)
 
 [Silver](/Silver/)
 
