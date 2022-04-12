@@ -13,8 +13,3 @@ else:
     for i in range(3, n+1):
         graph[i] = (graph[i-1]+graph[i-2]) % 10007
     print(graph[n])
-'''
-
-
-
-'''
