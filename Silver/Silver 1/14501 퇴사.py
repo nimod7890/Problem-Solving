@@ -11,14 +11,3 @@ for i in reversed(range(n-1)):
     else:
         dp[i] = max(dp[i+1], nlist[i][1]+dp[i+nlist[i][0]])
 print(dp[0])
-'''
-7
-3 10
-5 20
-1 10
-1 20
-2 15
-4 40
-2 200
-
-'''
