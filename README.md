@@ -1,4 +1,4 @@
-# Coding-Test
+# Problem-Solving
 
 Practice Algorithm
 
