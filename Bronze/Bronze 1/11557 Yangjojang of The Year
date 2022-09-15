@@ -1,0 +1,6 @@
+for i in range(int(input())):
+    nlist=[]
+    for i in range(int(input())):
+        a,b=input().split()
+        nlist.append([a,int(b)])
+    print(sorted(nlist,key=lambda x:x[1])[-1][0])
