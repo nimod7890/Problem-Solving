@@ -6,7 +6,7 @@ for i in range(int(m)):
     a,b=map(int,input().split())
     graph[a]+=[b]
     graph[b]+=[a]
-    
+    print(graph) 
 #dfs
 will=deque()
 will.append(int(v))
