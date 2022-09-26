@@ -16,4 +16,5 @@ while will:
         if result[v]==0:
             result[v]=node
             will.append(v)
-print(*(result[2:]),sep='\n')
+print(*(result[2:]),sep=' ')
+print(" ".join(map(str,result[2:])))

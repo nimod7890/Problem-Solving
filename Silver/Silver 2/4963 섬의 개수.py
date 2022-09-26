@@ -8,6 +8,7 @@ def bfs(i,j):
             for x,y in [[i-1,j-1],[i-1,j],[i-1,j+1],[i,j-1],[i,j+1],[i+1,j-1],[i+1,j],[i+1,j+1]]:
                 if 0<=y<w and 0<=x<h:
                     will.append([x,y])
+
 while True:
     w,h=map(int,input().split())
     if w==h==0: break
