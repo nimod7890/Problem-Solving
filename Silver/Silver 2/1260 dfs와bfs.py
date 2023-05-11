@@ -27,10 +27,10 @@ def bfs(v):
 
 
 dfs(v)
-print(" ".join(str(i) for i in visited))
+print(" ".join(map(str,visited)))
 visited=[]
 bfs(v)
-print(" ".join(str(i) for i in visited))
+print(" ".join(map(str,visited)))
 
 
 

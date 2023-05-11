@@ -6,16 +6,15 @@ for i in range(int(m)):
     a,b=map(int,input().split())
     graph[a]+=[b]
     graph[b]+=[a]
-    print(graph) 
 #dfs
 will=deque()
 will.append(int(v))
 visit=[]
 while will:
-    node=will.popleft()
+    node=will.pop()
     if node not in visit:
         visit.append(node)
-        will.extendleft(sorted(graph[node],reverse=True))
+        will.extend(sorted(graph[node]))
             
 print(" ".join(map(str,visit)))
 
