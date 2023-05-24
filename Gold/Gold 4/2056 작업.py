@@ -1,6 +1,10 @@
-'''4퍼에서 틀림
+'''
+4퍼에서 틀림
 '''
 from collections import defaultdict, deque
+import sys
+
+input=sys.stdin.readline
 
 relation=defaultdict(list)
 time=[0]
@@ -21,7 +25,7 @@ while queue:
     for v in relation[node]:
         count[v]=max(count[v],count[node]+time[v])
         queue.append(v)
-    print(count)
+    # print(count)
 print(max(count))        
 
 '''
