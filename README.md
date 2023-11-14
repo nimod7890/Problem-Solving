@@ -1,10 +1,16 @@
 # Problem-Solving
 
-Practice Algorithm
+### main
 
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=nimod1234)](https://solved.ac/nimod1234/)
 
 [![mazandi profile](http://mazandi.herokuapp.com/api?handle=nimod1234&theme=dark)](https://solved.ac/nimod1234/)
+
+### sub
+
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=nimod7890)](https://solved.ac/nimod7890/)
+
+[![mazandi profile](http://mazandi.herokuapp.com/api?handle=nimod7890&theme=dark)](https://solved.ac/nimod7890/)
 
 ---
 
