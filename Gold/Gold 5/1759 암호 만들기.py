@@ -1,18 +1,10 @@
 from itertools import combinations
+import sys
+input=sys.stdin.readline
 
-l,c=map(int,input().split())
-vowels=['a','e','i','o','u']
-alist,blist,ans=[],[],[] #자음, 모음
+L, C = map(int, input().split())
 
-for v in input().rstrip().split():
-  if v in vowels:
-    blist.append(v)
-  else:
-    alist.append(v)
-
-for i in range(2,l): # 자음 개수
-  j=l-i # 모음 개수
-  for li1 in combinations(alist,i):
-    for li2 in combinations(blist,j):
-      ans.append("".join(sorted(li1+li2)))
-print(*sorted(ans),sep='\n')
+for word in combinations(sorted(input().split()), L):
+  cnt_vow=len([1 for i in word if i in "aeiou"])
+  if cnt_vow >= 1 and L - cnt_vow >= 2:
+    print(*word,sep='')
