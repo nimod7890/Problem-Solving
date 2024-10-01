@@ -19,5 +19,3 @@ while (queue.length) {
     }
   }
 }
-
-console.log(cnt);
